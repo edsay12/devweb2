@@ -9,6 +9,15 @@ services:
     depends_on:
       - kafka1
 
+  send-email:
+    build: send-email
+    container_name: send-email
+    volumes:
+      - ./appdata:/appdata
+    depends_on:
+      - kafka1
+
+
   rotate:
     build: rotate-app
     container_name: rotate
